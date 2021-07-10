@@ -1,0 +1,15 @@
+{
+  "name": "curso-poo",
+  "version": "1.0.0",
+  "description": "Curso básico de programación orentada a objetos en javascript, tambén se irá desarrollando el proyecto del mismo",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "POO",
+    "JS"
+  ],
+  "author": "Daniel Briceño",
+  "license": "ISC"
+}
