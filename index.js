@@ -47,10 +47,24 @@ juanita.approveCourse("Curso 4")
 
 //Prototipos con la sintaxis de clases, recordar que aunque se llamen clases, por dentro siguen siendo prototipos, esta no es más que una sintaxis más "amigable" (sugar syntax) para parecerse más a las clases en otros lenguajes
 class Student2 {
-    constructor(name, age, approvedCourses) {
+    // constructor(name, age, approvedCourses) {
+    //Este tipo de parámetros tienen la desventaja de que hay que irlos pasamdo en orden cuando se esté creando una nueva instancia de la clase, lo mismo ocurre al pasar parámetros de esta manera a una función cualquiera o un método de una clase, etc, lo mejor es usar parámetros nombrados, es decir, pasarle on objeto que va a contener todos los parámetros. No es necesario pasarlos en orden, o pasarlos en si no se teniene, ya que tendrían por defecto null o se les puede definir un valor por defecto en caso de que no se tenga nada.
+    constructor({
+        name,
+        age,
+        approvedCourses,
+        email,
+        facebook = "",
+        twitter = "",
+        instagram = "",
+    }) {
         this.name = name
         this.age = age
-        this.approvedCourses = approvedCourses
+        this.approvedCourses = approvedCourses,
+        this.email =  email
+        this.facebook = facebook
+        this.twitter = twitter
+        this.instagram = instagram
     }
     //this sigue haciendo referencia a la clase Student2
     //Métodos de la clase
@@ -60,15 +74,16 @@ class Student2 {
 }
 
 // Creando una nueva instancia de la clase Student2
-const miguel = new Student2(
-    "Miguel",
-    20, 
-    [
+const miguel = new Student2({
+    name: "Miguel",
+    age: 20, 
+    email: "miguel@platzi.com",
+    approvedCourses: [
         "Curso 1",
         "Curso 2",
         "Curso 3",
         "Curso 4",
     ],
-)
+})
 
 miguel.approveCourse("Curso 5")
