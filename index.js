@@ -87,3 +87,79 @@ const miguel = new Student2({
 })
 
 miguel.approveCourse("Curso 5")
+
+const juan1 = {
+    name: "JuanDC",
+    userName: juandc,
+    points: 100,
+    socialMedia: {
+        twitter: "@fjuandc",
+        instagram: "fjuandc",
+        facebook: undefined,
+    },
+    approvedCourses: [
+        "Curso 1",
+        "Curso 2",
+        "Curso 3",
+        "Curso 4",
+    ],
+    //Ruta de aprendisaje, será un array de objetos
+    learningPaths: [
+        {
+            name: "Escuela de Desarrollo Web",
+            courses: [
+                "Curso DW 1",
+                "Curso DW 2",
+                "Curso DW 3",
+                "Curso DW 4",
+            ]
+        },
+        {
+            name: "Escuela de JavaScript",
+            courses: [
+                "Curso JS 1",
+                "Curso JS 2",
+                "Curso JS 3",
+                "Curso JS 4",
+            ]
+        },
+    ]
+}
+
+const miguel1 = {
+    name: "MiguelDC",
+    userName: juandc,
+    points: 5500,
+    socialMedia: {
+        twitter: "@gmigeldc",
+        instagram: "gmigeldc",
+        facebook: "gmiguel10",
+    },
+    approvedCourses: [
+        "Curso 1",
+        "Curso 2",
+        "Curso 3",
+        "Curso 4",
+    ],
+    //Ruta de aprendisaje, será un array de objetos
+    learningPaths: [
+        {
+            name: "Escuela de Desarrollo Web",
+            courses: [
+                "Curso DW 1",
+                "Curso DW 2",
+                "Curso DW 3",
+                "Curso DW 4",
+            ]
+        },
+        {
+            name: "Escuela de JavaScript",
+            courses: [
+                "Curso JS 1",
+                "Curso JS 2",
+                "Curso JS 3",
+                "Curso JS 4",
+            ]
+        },
+    ]
+}

@@ -1,0 +1,17 @@
+Ventajas de la Programación Orientada a Objetos
+
+Reusabilidad. Cuando hemos diseñado adecuadamente las clases, se pueden usar en distintas partes del programa y en numerosos proyectos.
+
+Mantenibilidad. Debido a las sencillez para abstraer el problema, los programas orientados a objetos son más sencillos de leer y comprender, pues nos permiten ocultar detalles de implementación dejando visibles sólo aquellos detalles más relevantes.
+
+Modificabilidad. La facilidad de añadir, suprimir o modificar nuevos objetos nos permite hacer modificaciones de una forma muy sencilla.
+
+Fiabilidad. Al dividir el problema en partes más pequeñas podemos probarlas de manera independiente y aislar mucho más fácilmente los posibles errores que puedan surgir.
+
+La programación orientada a objetos presenta también algunas desventajas como pueden ser:
+
+Cambio en la forma de pensar de la programación tradicional a la orientada a objetos.
+
+La ejecución de programas orientados a objetos es más lenta.
+
+La necesidad de utilizar bibliotecas de clases obliga a su aprendizaje y entrenamiento.
