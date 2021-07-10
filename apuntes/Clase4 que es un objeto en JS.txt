@@ -1,0 +1,8 @@
+//Objeto literal en JS, Son como un array, cada uno va con una llave y un valor. Los objetos literales no son instancias (de objetos), pero si son instancias del prototipo objet, no son lo mismo que la programación orientada a objetos, de las instancias y las clases.
+
+const estudiantes = {
+    "Juan": 110,
+    "Juanita": 300,
+    "Nora": 150,
+    "Luisa": 0
+}
