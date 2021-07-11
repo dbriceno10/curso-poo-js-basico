@@ -6,6 +6,18 @@ const cursoProgBasica = new Course({
     name: "Curso Gratuito de Programación Básica"
 })
 
+//Cambiando el nombre usando un método
+//cursoProgBasica.changeName("Curso Gratis de Programación Básica")
+
+//Leyendo el nombre del atributo con con el get
+// const nameProgBasica = cursoProgBasica.name
+// console.log(nameProgBasica)
+
+//Cambiando el nombre del atributo name con un set
+cursoProgBasica.name = "Curso Gratis de Programación Básica"
+
+console.log(cursoProgBasica)
+
 const cursoDefHTML = new Course({
     name: "Curso Definitivo de HTML y CSS"
 })
