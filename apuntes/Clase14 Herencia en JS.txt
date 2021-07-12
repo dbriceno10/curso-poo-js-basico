@@ -1,0 +1,76 @@
+Para hacer la herencia usando la sintaxis de prototipos podemos hacer lo siguiente:
+ 
+Suponiendo que ya tenemos creada nuestra superclase (Student). Vamos a crear una clase (FreeStudent) que va a pasar los parámetros de inicialización al constructor de la superclase, para esto hacemos uso de la función call().
+
+function FreeStudent(props) {
+  Student.call(this, props);
+}
+Le pasamos como primer atributo el contexto de ejecución de nuestra nueva “clase” y como segundo parámetro los props, que son estas propiedades que recibiremos de inicialización.
+ 
+Después de esto, clonamos el prototipo de nuestra superclase en el prototipo de nuestra subclase:
+
+FreeStudent.prototype = Object.create(Student.prototype);
+Por último, le agregamos cualquier función extra que deseemos agregar a la subclase:
+
+FreeStudent.prototype.approveCourse = function (newCourse) {
+  if (newCourse.isFree) {
+    this.approvedCourses.push(newCourse);
+  } else {
+    console.warn(`Lo sentimos, ${this.name}, sólo puedes tomar cursos gratis`);
+  }
+}
+Y eso es todo!
+ 
+Fuente: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+
+
+
+Super
+La palabra clave super es usada para acceder y llamar funciones del padre de un objeto.
+
+Las expresiones super.prop y super[expr] son válidas en cualquier definición de método tanto para clases como para objetos literales (en-US).
+
+Sintaxis
+// llama al método constructor del objeto padre.
+super([arguments]);
+
+// llama cualquier otro método del objeto padre.
+super.functionOnParent([arguments]);
+Descripción
+Cuando es usado en un constructor, la palabra clave super aparece sola lo cual invoca el constructor del objeto padre. En este caso debe usarse antes de que la palabra clave this sea usada. La palabra clave super también puede utilizarse para llamar otras funciones del objeto padre.
+**
+Ejemplo**
+Usando super en clases
+Este fragmento de código se toma del ejemplo de clases (demo en vivo). Aquí se llama a super() para evitar la duplicación de las partes del constructor que son comunes entre Rectangle y Square.
+
+class Rectangle {
+  constructor(height, width) {
+    this.name = 'Rectangle';
+    this.height = height;
+    this.width = width;
+  }
+  sayName() {
+    console.log('Hi, I am a ', this.name + '.');
+  }
+  get area() {
+    return this.height * this.width;
+  }
+  set area(value) {
+    this.height = this.width = Math.sqrt(value);
+  }
+}
+
+class Square extends Rectangle {
+  constructor(length) {
+    this.height; // ReferenceError, super necesita ser llamado primero!
+
+    // Aquí, llama al constructor de la clase padre con las longitudes
+    // previstas para el ancho y la altura de Rectangle
+    super(length, length);
+
+    // Nota: En las clases derivadas, se debe llamar a super() antes de
+    // poder usar 'this'. Salir de esto provocará un error de referencia.
+    this.name = 'Square';
+  }
+}
