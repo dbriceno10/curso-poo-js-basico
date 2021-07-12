@@ -1,3 +1,5 @@
+import { Comment } from "./Comment.js"
+
 export class Student {
     constructor({
         id = undefined,
@@ -22,6 +24,14 @@ export class Student {
         }
         this.approvedCourses = approvedCourses
         this.learningPaths = learningPaths
+    }
+
+    postComment(commentContent) {
+        const comment = new Comment({
+            content: commentContent,
+            studentName: this.name,
+        })
+        comment.toPost()
     }
 }
 

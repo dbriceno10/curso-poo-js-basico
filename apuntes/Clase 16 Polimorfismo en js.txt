@@ -1,0 +1,43 @@
+El polimorfismo es uno de los principios de la programación orientada a objetos (OOP). Es la práctica de diseñar objetos para compartir comportamientos y poder anular los comportamientos compartidos con otros específicos. El polimorfismo se aprovecha de la herencia para que esto suceda.
+
+En OOP se considera que todo está modelado como un objeto. Esta abstracción puede reducirse a tuercas y tornillos para un automóvil, o tan amplia como simplemente un tipo de automóvil con un año, marca y modelo.
+
+Para tener un escenario de automóvil polimórfico sería el tipo de automóvil base, y luego habría subclases que heredarían del automóvil y proporcionarían sus propios comportamientos además de los comportamientos básicos que tendría un automóvil. Por ejemplo, una subclase podría ser TowTruck que aún tendría un año de fabricación y modelo, pero también podría tener algunos comportamientos y propiedades adicionales que podrían ser tan básicos como una bandera para IsTowing tan complicados como los detalles específicos de la elevación.
+
+Volviendo al ejemplo de las personas y los empleados, todos los empleados son personas, pero todas las personas no son empleados. Lo que quiere decir que las personas serán la súper clase y el empleado la subclase. Las personas pueden tener edades y pesos, pero no tienen salarios. Los empleados son personas por lo que inherentemente tendrán una edad y peso, pero también porque son empleados tendrán un salario.
+
+Así que para facilitar esto, primero escribiremos la súper clase (Persona)
+
+function Person(age,weight){
+ this.age = age;
+ this.weight = weight;
+}
+Y le daremos a la persona la posibilidad de compartir su información.
+
+Person.prototype.getInfo = function(){
+ return "I am " + this.age + " years old " +
+    "and weighs " + this.weight +" kilo.";
+};
+A continuación deseamos tener una subclase de Persona, Empleado.
+
+function Employee(age,weight,salary){
+ this.age = age;
+ this.weight = weight;
+ this.salary = salary;
+}
+Employee.prototype = new Person();
+Y anularemos el comportamiento de getInfo definiendo uno que sea más adecuado para un empleado
+
+Employee.prototype.getInfo = function(){
+ return "I am " + this.age + " years old " +
+    "and weighs " + this.weight +" kilo " +
+    "and earns " + this.salary + " dollar.";  
+};
+Se pueden usar de forma similar a su código original.
+
+var person = new Person(50,90);
+var employee = new Employee(43,80,50000);
+
+console.log(person.getInfo());
+console.log(employee.getInfo());
+Sin embargo, aquí no se gana mucho con la herencia, ya que el constructor de Employee es muy similar al de una persona, y la única función en el prototipo está siendo anulada. El poder en el diseño polimórfico es compartir comportamientos.

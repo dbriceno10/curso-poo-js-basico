@@ -1,8 +1,8 @@
-// import { Student } from "./class/Student.js"
 import { FreeStudent } from "./class/FreeStudent.js"
 import { BasicStudent } from "./class/BasicStudent.js"
 import { ExpertStudent } from "./class/ExpertStudent.js"
-import { learningPaths } from "./class/LearningPath.js"
+import { TeacherStudent } from "./class/TeacherStudent.js"
+import { LearningPaths } from "./class/LearningPath.js"
 import { Course } from "./class/Courses.js"
 import { PlatziClass } from "./class/PlatziClases.js"
 
@@ -32,7 +32,7 @@ const cursoPracticoHTML = new Course({
     name: "Curso Práctico de HTML y CSS"
 })
 
-const escuelaDesarrolloWeb = new learningPaths({
+const escuelaDesarrolloWeb = new LearningPaths({
     id: 1,
     name: "Escuela de Desarrollo Web",
     courses: [
@@ -44,7 +44,7 @@ const escuelaDesarrolloWeb = new learningPaths({
     ]
 })
 
-const escuelaDataScience = new learningPaths({
+const escuelaDataScience = new LearningPaths({
     id: 2,
     name: "Escuela de Data Science",
     courses: [
@@ -55,7 +55,7 @@ const escuelaDataScience = new learningPaths({
     ]
 })
 
-const escuelaVideojuegos = new learningPaths({
+const escuelaVideojuegos = new LearningPaths({
     id: 3,
     name: "Escuela de Videojuegos",
     courses: [
@@ -88,6 +88,40 @@ const miguel = new BasicStudent({
     id: 1,
     email: "miguel@platzi.com",
     instagram: "migueldc1010",
+    approverCourses: [
+        "Curso 4",
+        "Curso 5",
+        "Curso 6",
+        cursoProgBasica,
+    ],
+    learningPaths: [
+        escuelaDataScience
+    ],
+})
+
+const jose = new ExpertStudent({
+    name: "joseDC",
+    userName: "josed10",
+    id: 1,
+    email: "jose@platzi.com",
+    instagram: "josedc1010",
+    approverCourses: [
+        "Curso 4",
+        "Curso 5",
+        "Curso 6",
+        cursoProgBasica,
+    ],
+    learningPaths: [
+        escuelaDataScience
+    ],
+})
+
+const freddy = new TeacherStudent({
+    name: "freddyDC",
+    userName: "feeddyd10",
+    id: 1,
+    email: "freddy@platzi.com",
+    instagram: "freddy1010",
     approverCourses: [
         "Curso 4",
         "Curso 5",

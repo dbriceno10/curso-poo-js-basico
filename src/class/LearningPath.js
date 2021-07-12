@@ -1,4 +1,4 @@
-export class learningPaths {
+export class LearningPaths {
     constructor({
         id = undefined,
         name,
