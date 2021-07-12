@@ -1,6 +1,7 @@
 import { Student } from "./class/Student.js"
 import { learningPaths } from "./class/LearningPath.js"
 import { Course } from "./class/Courses.js"
+import { PlatziClass } from "./class/PlatziClases.js"
 
 const cursoProgBasica = new Course({
     name: "Curso Gratuito de Programación Básica"
@@ -92,6 +93,14 @@ const miguel = new Student({
         escuelaDataScience
     ],
 })
+
+const clase67 = new PlatziClass({
+    name: "JS: oriendado a objetos",
+    videoID: "lalalalala"
+})
+
+clase67.Play()
+clase67.Pause()
 
 console.log(juan)
 console.log(miguel)
