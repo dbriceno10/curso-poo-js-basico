@@ -1,10 +1,14 @@
-import { Student } from "./class/Student.js"
+// import { Student } from "./class/Student.js"
+import { FreeStudent } from "./class/FreeStudent.js"
+import { BasicStudent } from "./class/BasicStudent.js"
+import { ExpertStudent } from "./class/ExpertStudent.js"
 import { learningPaths } from "./class/LearningPath.js"
 import { Course } from "./class/Courses.js"
 import { PlatziClass } from "./class/PlatziClases.js"
 
 const cursoProgBasica = new Course({
-    name: "Curso Gratuito de Programación Básica"
+    name: "Curso Gratuito de Programación Básica",
+    isFree: true,
 })
 
 //Cambiando el nombre usando un método
@@ -20,7 +24,8 @@ cursoProgBasica.name = "Curso Gratis de Programación Básica"
 console.log(cursoProgBasica)
 
 const cursoDefHTML = new Course({
-    name: "Curso Definitivo de HTML y CSS"
+    name: "Curso Definitivo de HTML y CSS",
+    lang: "english",
 })
 
 const cursoPracticoHTML = new Course({
@@ -60,7 +65,7 @@ const escuelaVideojuegos = new learningPaths({
     ]
 })
 
-const juan = new Student({
+const juan = new FreeStudent({
     name: "juanDC",
     userName: "juancd10",
     id: 2,
@@ -77,7 +82,7 @@ const juan = new Student({
     ],
 })
 
-const miguel = new Student({
+const miguel = new BasicStudent({
     name: "miguelDC",
     userName: "migueld10",
     id: 1,

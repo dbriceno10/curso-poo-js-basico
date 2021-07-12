@@ -7,7 +7,7 @@ export class Student {
         twitter = undefined,
         instagram = undefined,
         facebook = undefined,
-        approverCourses = [],
+        approvedCourses = [],
         learningPaths = [],
     }) {
         this.id = id
@@ -20,7 +20,7 @@ export class Student {
             instagram,
             facebook,
         }
-        this.approverCourses = approverCourses
+        this.approvedCourses = approvedCourses
         this.learningPaths = learningPaths
     }
 }
