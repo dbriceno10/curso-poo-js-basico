@@ -1,11 +1,11 @@
-import { Student } from "./Student.js"
+import { Student } from './Student.js';
 
 export class ExpertStudent extends Student {
-    constructor(props) {
-        super(props)
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    approveCourse(newCourse) {
-        this.approvedCourses.push(newCourse)
-    }
+  approveCourse(newCourse) {
+    this.approvedCourses.push(newCourse);
+  }
 }
