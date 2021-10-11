@@ -1,0 +1,107 @@
+Object.defineProperty
+Con esta propiedad se pueden definir nuevas propiedades a nuestro objeto. Así mismo, se puede configurar ciertas características de la propiedad tales como:
+
+Configurable: Esta indica si la propiedad puede ser borrada o eliminada
+Enumerable: Indica si la propiedad puede ser mostrada en la enumeración de las mismas. Existen ciertos métodos que toman como referencia este valor para mostrar la propiedad
+Writable: Esta indica si la propiedad puede ser modificada con el operador de asignación (=)
+const person = {
+  userName: 'zajithcorro',
+  age: 26,
+  approvedCourses: ['Curso Profesional de Git y Github'],
+  addApprovedCourse (course) {
+    console.log(this)
+    this.approvedCourses.push(course);
+  }
+}
+Object.defineProperty(person, "mail", {
+    value: "zajith@outlook.com",
+    writable: false,
+    enumerable: true,
+    configurable: true
+})
+
+Object.defineProperty(person, "twitter", {
+    value: "zajithcorro",
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+Object.defineProperty(person, "platziPoints", {
+    value: 7500,
+    writable: true,
+    enumerable: true,
+    configurable: false
+})
+
+Object.defineProperty(person, "gender", {
+    value: "male",
+    writable: false,
+    enumerable: false,
+    configurable: false
+})
+Si queremos modificar un propiedad que tienen writable: false no permitirá que su valor sea modificado
+
+person.mail // 'zajith@outlook.com'
+person.mail = 'zajith@gmail.com' // 'zajith@gmail.com'
+person.mail // // 'zajith@outlook.com'
+Object.keys solo muestra las propiedades que tienen enumerable: true. A diferencia de Object.getOwnPropertyNames que muestra todas las propiedades
+
+Object.keys(person) // [ 'userName', 'age', 'approvedCourses', 'addApprovedCourse', 'mail', 'platziPoints' ]
+Object.getOwnPropertyNames(person) // [ 'userName', 'age', 'approvedCourses', 'addApprovedCourse', 'mail', 'twitter', 'platziPoints', 'gender' ]
+Si queremos eliminar propiedad que tienen configurable: false no permitirá que sea borrada del objeto.
+
+delete person.platziPoints // false
+delete person.userName // true
+Object.freeze()
+
+Este método congela un objeto que sea pasado. Es decir:
+
+Impide que se le agreguen nuevas propiedades
+Impide que sean eliminas propiedades ya existentes
+Impide que sus las propiedades internas (writable, enumerable y configurable) sean modificadas
+const person = {
+  userName: 'zajithcorro',
+  age: 26,
+  approvedCourses: ['Curso Profesional de Git y Github'],
+  addApprovedCourse (course) {
+    console.log(this)
+    this.approvedCourses.push(course);
+  }
+}
+
+Object.freeze(person)
+
+person.mail = 'zajith@mail.com'
+Object.keys(person) // [ 'userName', 'age', 'approvedCourses', 'addApprovedCourse' ]
+
+person.age = 27
+person.age // 26
+
+delete person.userName // false
+Object.seal()
+
+Este método sella un objeto que sea pasada. Es decir:
+
+Impide que nuevas propiedades sean agregadas
+Cambia en todas las propiedades configurable: false, con lo que impide que sean borradas
+Las propiedades aún puede ser modificadas, ya que writable esta true
+const person = {
+  userName: 'zajithcorro',
+  age: 26,
+  approvedCourses: ['Curso Profesional de Git y Github'],
+  addApprovedCourse (course) {
+    console.log(this)
+    this.approvedCourses.push(course);
+  }
+}
+
+Object.seal(person)
+
+person.mail = 'zajith@mail.com'
+Object.keys(person) // [ 'userName', 'age', 'approvedCourses', 'addApprovedCourse' ]
+
+delete person.userName // false
+
+person.age = 27
+person.age // 27
