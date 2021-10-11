@@ -58,3 +58,74 @@ Encapsulamiento
 Si recordamos del curso anterior, el objetivo del encapsulamiento es limitiar quien puede modificar, acceder o ejecutar nuestros metodos o atributos de la clase o prototipo.
 
 Ahora con las propiedades writable configurable enumerable podemos limitar quien tiene acceso, modificar nuestros objetos.
+
+Empieza el show…
+
+Una de las propiedades que es relavante es el object.entries.
+
+Esta se puede utilizar para entrar a los objectos y trabajar de una manera similar que lo hacemos con la instancia, la diferencia es que una vez ejecutado el objec.entries, este cmabiara TODO el objecto y lo movera a ser un array, por lo tanto el THIS dejara de pincharle donde lo hacia por defecto…
+
+const juan = {
+  name: "jaunito",
+  age: 18,
+  approvedCourses: ["curso 1"],
+  addCourse(newCourse) {
+    console.log("this sera", this);
+    console.log("this.approvedCourses sera", this.approvedCourses);
+    this.approvedCourses.push(newCourse);
+    
+  }
+}
+
+console.group();
+  console.log(Object.keys(juan));
+  console.log(Object.getOwnPropertyNames(juan));
+  console.log(Object.entries(juan));
+console.groupEnd();
+
+//manera normal de encarar un metodo, juan.addCourse("chino");
+
+//con el object.entries => 
+// Object.entries(juan)[3][1]("curso 2");
+//lo que hago es entrar a juan,al elemtno 3, y luego dentro de otro array[1], todo esto se como encararlo gracias a 
+// console.log(Object.entries(juan)); y de aca me fui moviendo hasta llegar a esto Object.entries(juan)[3][1]("curso 2");
+//de manera a simple vista paecelo mismo, perooo como escribi ates, el objecto cambia la manera de apuntar con el this, y lo que responderala consola es:
+//this sera (2) ["addCourse", ƒ] => como se puede ver, cambio ya no apunta a juan.
+// this.approvedCourses sera undefined
+
+Otro metodo estatico es:
+
+[Object.defineProperty()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+El método estático Object.defineProperty() define una nueva propiedad(con propiedad me refiero a crear ejemplo un age: 18, de manera super manuel ) sobre un objeto, o modifica una ya existente, y devuelve el objeto modificado.
+
+Sintaxis
+Object.defineProperty(obj, prop, descriptor)
+
+Parámetros
+objEl objeto sobre el cual se define la propiedad.
+
+propEl nombre de la propiedad a ser definida o modificada.
+
+descriptorEl descriptor de la propiedad que está siendo definida o modificada
+
+const juan = {
+  name: "jaunito",
+  age: 18,
+  approvedCourses: ["curso 1"],
+  addCourse(newCourse) {
+    console.log("this sera", this);
+    console.log("this.approvedCourses sera", this.approvedCourses);
+    this.approvedCourses.push(newCourse);
+    
+  }
+}
+
+Object.defineProperty(juan, "pruebaNASA", {
+  value: "extraterrestres",
+  writable: true,
+  enumerable: true,
+  configurable: true,
+})
+
+//juan es el obj, prop es "pruebaNASA", "descriptor" son todos los atributos
+//como value,writable, etc etc 
