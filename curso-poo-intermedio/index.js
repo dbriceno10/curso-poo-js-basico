@@ -46,7 +46,7 @@ Object.defineProperty(daniel, 'terminal', {
   configurable: false,
 });
 
-console.log(Object.getOwnPropertyDescriptors(daniel));
+// console.log(Object.getOwnPropertyDescriptors(daniel));
 /*
 Object.keys(objeto) ---> me enumera las propiedades de un objeto pero no me va a mostrar las que tengan la propiedad "enumerable" en false
 Object.getOwnPropertyNames(objeto) --> me va traer los nombres de todas las propiedades de un objeto, incluso las que se hallan ocultado cambiando el atributo "enumerable" a false
@@ -62,3 +62,14 @@ La propiedad configurable, puede (true) o no (false) ser eliminada. Sin embargo 
 
 Object.seal(daniel); //Cambia el configurable de todas las propiedades del objeto a false para evitar que estas puedan ser borradas
 Object.freeze(daniel); //cambia el writable y el configurable de todas nuestras propiedades a false
+
+// const juanita = {
+//   age: 15,
+//   email: 'juanita@gmail.com',
+// };
+
+// const nath = juanita;
+// nath.email = 'nath@gmail.com';
+// nath.age = 25;
+
+// console.log({ juanita, nath });
